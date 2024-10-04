@@ -17,12 +17,8 @@ https://github.com/embulk/embulk/releases/tag/v0.9.25
 <br>
 <br>
 1. "embulk-0.9.25.jar" をクリックしてダウンロード
-<br>
-<br>
 2. ダウンロードしたファイルを "C:\embulk" を作成し、その配下に配置する
-<br>
-<br>
-1. ダウンロードした "embulk-0.9.25.jar" を "embulk.bat" にリネームする
+3. ダウンロードした "embulk-0.9.25.jar" を "embulk.bat" にリネームする
 
 ### 1.3 JRubyのダウンロード
 "jruby-complete-9.1.15.0.jar" を "C:\embulk" にダウンロードする<br>
