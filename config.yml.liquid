@@ -1,5 +1,29 @@
 in:
+  type: sqlserver
+  driver_path: C:\drivers\sqljdbc41.jar
+  host: 192.168.xxx.xxx
+  user: user_name
+  password: password
+  instance: MSSQLSERVER
+  database: database
+  query: |
+    SELECT t1.id, t1.name, t2.id AS t2_id, t2.name AS t2_name
+    FROM table1 AS t1
+    LEFT JOIN table2 AS t2
+      ON t1.id = t2.t1_id
 
 filter:
 
 out:
+  type: file
+  path_prefix: C:\outputPath
+  file_ext: csv
+  formatter:
+    type: csv
+    delimiter: ","
+    newline: CRLF
+    newline_in_field: LF
+    charset: SHIFT_JIS
+    quote_policy: MINIMAL
+    quote: '"'
+    null_string: ""
