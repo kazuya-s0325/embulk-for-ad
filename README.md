@@ -173,11 +173,9 @@ out:
 キーの前にハイフン + 半角スペース挿入で、配列の要素を表現する
 
 #### 3.1.3 SQLServerへの接続
-以下のリポジトリを参照<br>
-https://github.com/embulk/embulk-input-jdbc/tree/master/embulk-input-sqlserver<br>
+[このリポジトリ](https://github.com/embulk/embulk-input-jdbc/tree/master/embulk-input-sqlserver#example)を参照
 <br>
 また、Microsoft提供のSQLSever用のJDBC Driverが必要なので[ここからダウンロード](https://learn.microsoft.com/ja-jp/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-ver16)しておく<br>
-<br>
 <br>
 ダウンロード後は`mssql-jdbc-12.8.1.jre8.jar`ファイルを以下のパスに保存
 ~~~
