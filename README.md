@@ -191,7 +191,7 @@ out:
 > embulk preview config.yml
 ~~~
 
-#### 3.3.2
+#### 3.3.2 Run
 本実行コマンド
 ~~~
 > embulk run config.yml
