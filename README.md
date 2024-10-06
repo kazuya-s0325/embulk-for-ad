@@ -25,8 +25,8 @@ https://github.com/embulk/embulk/releases/tag/v0.9.25
 https://www.jruby.org/files/downloads/9.1.15.0/index.html
 ~~~
 C:\embulk
-├─  embulk.bat
-└─  jruby-complete-9.1.15.0.jar
+  ├─  embulk.bat
+  └─  jruby-complete-9.1.15.0.jar
 ~~~
 ### 1.4 プロパティファイルを作成して配置
 1. "C:\embulk" フォルダ内に ".embulk" という名前でフォルダを作成する
@@ -108,18 +108,19 @@ embulk側でString型へ変換<br>
 
 ## 3. embulkの設定ファイル
 ### 3.1 【事前知識】ymlファイル
-embulkの設定ファイルにはymlファイルと呼ばれるものが使われている<br>
+embulkの設定ファイルにはyml（ヤムル）ファイルと呼ばれるものが使われている<br>
 
 #### 3.1.1 ymlファイルとは
 構造化されたデータを表現する、ファイルの書き方のルールの一つ<br>
 主に設定ファイルなどでよく使用され、あらゆるプログラム言語に対応している<br>
 また人間がみても見やすい上に、コンピュータでの解析も容易となっている<br>
-ファイル拡張子は".yml"で表される<br>
+ファイル拡張子は".yml"（または".yaml"）で表される<br>
 (iniファイルのようなもの、と考えると分かりやすい)
 
 #### 3.1.2 表記方法
-以下のように表記される
-例はCSVファイルから読み込む場合
+以下のように表記される<br>
+公式の設定マニュアルは[こちら](https://www.embulk.org/docs/built-in.html)<br>
+以下ははCSVファイルから読み込む場合の設定例
 ~~~
 in:
   type: file
@@ -168,7 +169,7 @@ out:
 - 数値
 - ブール
 - 配列
-- ハッシュ(連想配列)
+- ハッシュ(連想配列)<br><br>
 インデントを挿入すると、キーのネスト構造を表現することが可能(つまり、インデントに意味を持っている)<br>
 キーの前にハイフン + 半角スペース挿入で、配列の要素を表現する
 
@@ -177,9 +178,16 @@ out:
 <br>
 また、Microsoft提供のSQLSever用のJDBC Driverが必要なので[ここからダウンロード](https://learn.microsoft.com/ja-jp/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-ver16)しておく<br>
 <br>
-ダウンロード後は`mssql-jdbc-12.8.1.jre8.jar`ファイルを以下のパスに保存
+ダウンロード後は`sqljdbc_12.8`フォルダをCドライブ直下に保存<br>
+ディレクトリ階層は以下のような感じ
 ~~~
-C:\drivers\mssql-jdbc-12.8.1.jre8.jar
+C:
+└─sqljdbc_12.8
+  └─jpn
+      ├─auth
+      ├─jars
+      ├─samples
+      └─xa
 ~~~
 
 ### 3.2 設定ymlファイルについて
@@ -218,7 +226,7 @@ embulkでは元データを直接DBへクエリを投げて取得することも
 以下の理由から、できれば直接書き込みに行った方が良いと思われる
 - csvの書き出しに時間がかかることが予想される
 - nullと""(空白)の区別がつけづらい
-- マルチスレッドでの書き出しとなるので、吐き出す際にファイルが分割される(embulkの仕様)
+- マルチスレッドでの書き出しとなるので、吐き出す際にファイルが分割される(embulkの仕様、4C4TのCPUの場合は4つに分割された)
 
 ## Appendix
 https://qiita.com/hiroysato/items/a71669d3e5be2049c238<br>
