@@ -8,6 +8,11 @@
   ※データベース「ADO」の「データベースオブジェクト」という意味
     →「dbo_」を「[ADO].[dbo].」に置換してやればOK
 
+  ただし、「AS」以降に[ADO].[dbo]を含めるとエラーになる
+  例）
+    NG: INNER JOIN [ADO].[dbo].MST_得意先 AS [ADO].[dbo].MST_得意先_1 ON [ADO].[dbo].MST_得意先.請求得意先CD = [ADO].[dbo].MST_得意先_1.得意先CD
+    OK: INNER JOIN [ADO].[dbo].MST_得意先 AS MST_得意先_1 ON [ADO].[dbo].MST_得意先.請求得意先CD = MST_得意先_1.得意先CD
+
 1.LEFT関数
   ・Access: LEFT([文字列], [文字数])
   ・SQLServer: Access関数と同一
@@ -37,6 +42,11 @@
 6.IIF関数
   ・Access: IIF([論理式], [真の場合の値], [偽の場合の値])
   ・SQLServer: CASE [項目名] WHEN '値' THEN [真の場合の値] ELSE [偽の場合の値] END
-    もしくは CASE WHEN [項目名] IN ('値1', '値2',...) THEN [真の場合の値] ELSE [偽の場合の値] END
-    ※SQLのCASE文はわからない場合は一旦ググること推奨
+    もしくは CASE WHEN [項目名] IN ('値1', '値2',...) THEN [真の場合の値] ELSE [偽の場合の値] END etc...
+    ※場合によっては上記に当てはまらないことがある、SQLのCASE文はわからない場合は必ずググること
       https://qiita.com/sfp_waterwalker/items/acc7f95f6ab5aa5412f3
+
+7.ISNULL関数
+  ・Access: ISNULL([項目名])
+  ・SQLServer: [項目名] IS NULL
+    ※SQLServerのISNULL関数は意味合いが違う

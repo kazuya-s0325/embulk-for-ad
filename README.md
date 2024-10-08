@@ -33,7 +33,7 @@ C:\embulk
 2. "C:\embulk\.embulk" 配下に "embulk.properties" という名前でファイルを作成する
    - エクスプローラーからの場合は"右クリック" -> "新規作成" -> "テキスト文書"から作成してください
 3. 作成した "embulk.properties" をテキストエディタなどで開く
-   - メモ帳、サクラエディタ、秀丸などなんでもOKです
+   - VSCode、メモ帳、サクラエディタ、秀丸などなんでもOKです
 4. 以下の内容を貼り付けて保存
 ~~~
 jruby=file:///C:/embulk/.embulk/jruby-complete-9.1.15.0.jar
@@ -120,7 +120,7 @@ embulkの設定ファイルにはyml（ヤムル）ファイルと呼ばれる�
 #### 3.1.2 表記方法
 以下のように表記される<br>
 公式の設定マニュアルは[こちら](https://www.embulk.org/docs/built-in.html)<br>
-以下ははCSVファイルから読み込む場合の設定例
+以下はCSVファイルから読み込む場合の設定例
 ~~~
 in:
   type: file
