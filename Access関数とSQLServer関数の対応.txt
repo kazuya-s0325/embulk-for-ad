@@ -1,0 +1,42 @@
+■Access関数とSQLServer関数の対応
+
+0.全般
+  dbo_DT_XXX.YYY
+  ↓以下のように書き直す
+  [ADO].[dbo].DT_XXX.YYY
+
+  ※データベース「ADO」の「データベースオブジェクト」という意味
+    →「dbo_」を「[ADO].[dbo].」に置換してやればOK
+
+1.LEFT関数
+  ・Access: LEFT([文字列], [文字数])
+  ・SQLServer: Access関数と同一
+
+2.MID関数
+  ・Access: MID([文字列], [開始], [終了])
+  ・SQLServer: SUBSTRING([文字列], [開始], [終了])
+
+3.RIGHT関数
+  Access: RIGHT([文字列], [文字数])
+  SQLServer: Access関数と同一
+
+4.FORMAT関数
+  ・Access: Format([文字列 or 日付], [フォーマット指定])
+  ・SQLServer: CONVERT(VARCHAR, [文字列 or 日付], [フォーマット指定])
+    ただし、SQLServerのCONVERT関数のフォーマット指定の仕方は以下の通り
+      ・yyyy/mm/dd ⇒ 111
+      ・yyyymmdd ⇒ 112
+      例）
+        CONVERT(VARCHAR, [ADO].[dbo].MST_商品.更新日時, 111)
+
+5.文字列結合
+  ・Access: [文字列1] & [文字列2] & ...
+  ・SQLServer: ISNULL([文字列1], '') + ISNULL([文字列2], '') + ...
+    ※[文字列1] + [文字列2]でも結合出来るが、どちらかがnullの場合は結果もnullとなるため
+
+6.IIF関数
+  ・Access: IIF([論理式], [真の場合の値], [偽の場合の値])
+  ・SQLServer: CASE [項目名] WHEN '値' THEN [真の場合の値] ELSE [偽の場合の値] END
+    もしくは CASE WHEN [項目名] IN ('値1', '値2',...) THEN [真の場合の値] ELSE [偽の場合の値] END
+    ※SQLのCASE文はわからない場合は一旦ググること推奨
+      https://qiita.com/sfp_waterwalker/items/acc7f95f6ab5aa5412f3

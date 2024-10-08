@@ -1,25 +1,8 @@
 in:
-  type: sqlserver
-  driver_path: C:\sqljdbc_12.8\jpn\jars\mssql-jdbc-12.8.1.jre8.jar
-  host: 192.168.xxx.xxx
-  user: user_name
-  password: password
-  instance: MSSQLSERVER
-  database: database
-{% include 'query/query' %}
+{% include 'input_conf/input_conf_dev' %}
+  query: |
+    SELECT * FROM [ADO].[dbo].XXX;
 
-{% include 'filter/filter' %}
+filter:
 
-out:
-  type: file
-  path_prefix: C:\outputPath
-  file_ext: csv
-  formatter:
-    type: csv
-    delimiter: ","
-    newline: CRLF
-    newline_in_field: LF
-    charset: UTF-8
-    quote_policy: MINIMAL
-    quote: '"'
-    null_string: ""
+{% include 'output_conf/output_conf_csv' %}
